@@ -15,7 +15,7 @@ while True:
         telefone = telefone[indice]
         print(f'O telefone de {nome} é {telefone}')
     except ValueError as ex:
-        print('Deu ruim!')
+        print('Deu ruim!', str(ex))
 
 
 
