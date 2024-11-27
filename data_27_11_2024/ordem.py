@@ -3,3 +3,7 @@
 minha_lista = [1, 3, 2, 6, 8, 4, 9, 7, 0]
 minha_lista.sort()
 print(minha_lista)
+
+
+
+#minha_lista.sort(reverse=True) / deixa do menor para o maior
