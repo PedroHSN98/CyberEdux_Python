@@ -11,3 +11,7 @@ print('Antes: ', minha_lista)
 # Coloque aqui seu código
 
 print('Depois', minha_lista)
+a = len(minha_lista)
+for i in range(a):
+    b = (minha_lista[i].upper())
+    print(b)
