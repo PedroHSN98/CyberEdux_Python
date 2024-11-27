@@ -10,6 +10,9 @@ for i in range(n):
 
 while True:
     nome = input('Informe o nome da pessoa da qual você quer ver o telefone: ')
-    indice = nomes.index(nome)
-    telefone = telefone[indice]
-    print(f'O telefone de {nome} é {telefone}')
+    if nome in nomes: 
+        indice = nomes.index(nome)
+        telefone = telefone[indice]
+        print(f'O telefone de {nome} é {telefone}')
+    else:
+        print('Nome não encontrada na lista')
