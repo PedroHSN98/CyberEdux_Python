@@ -4,7 +4,7 @@
     #print
     #input
 
-# - Variavel 
+# - Variavel e expressões
 
 # - Tipos de dados
     #int
@@ -21,3 +21,6 @@
     #Lista
     #Tupla
     #Dicionario
+
+# - Funções 
+    
