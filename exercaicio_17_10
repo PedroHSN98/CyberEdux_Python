@@ -1,0 +1,16 @@
+def calcular_parcela(valor_a_vista, entrada, num_parcelas, taxa_juros):
+    valor_financiado = valor_a_vista - entrada
+    taxa_juros_decimal = taxa_juros / 100
+    if taxa_juros_decimal == 0:
+        return valor_financiado / num_parcelas
+    parcela = valor_financiado * (taxa_juros_decimal * (1 + taxa_juros_decimal)**num_parcelas) / ((1 + taxa_juros_decimal)**num_parcelas - 1)
+    return parcela
+
+valor_a_vista = float(input("Valor à vista: "))
+entrada = float(input("Valor da entrada: "))
+num_parcelas = int(input("Número de parcelas: "))
+taxa_juros = float(input("Taxa de juros mensal (%): "))
+
+valor_parcela = calcular_parcela(valor_a_vista, entrada, num_parcelas, taxa_juros)
+
+print(f"Parcela: R${valor_parcela:.2f}")
