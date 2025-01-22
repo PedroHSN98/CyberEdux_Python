@@ -9,8 +9,9 @@ for i in range(len(linhas)):
     linhas[i] = linha_atual #Devolve a string processada para a mesma posição na lista
 print(linhas)
 
-emails = []
+emails = [] #lista que contera apenas os emails
 for linha in linhas:
+    #Filtrar linhas para ignorar linhas em branco
     if linha != '':
         emails.append(linha)
     
