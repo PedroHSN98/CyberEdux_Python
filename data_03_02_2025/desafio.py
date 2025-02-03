@@ -27,7 +27,7 @@ ws.append(['Nome', 'Email'])
 for linha in tabela:
     ws.append(linha)
 
-# Salvar o arquivo
+#Salvar
 wb.save('tabela.xlsx')
 
 print("Arquivo Excel criado com sucesso!")
