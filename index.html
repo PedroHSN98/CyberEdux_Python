@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notícias de Incêndios Globais</title>
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin-bottom: 10px;
+            font-size: 2rem;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .news-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .news-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            padding: 20px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            background-color: #ffebee; /* Cor de fundo ao passar o mouse */
+        }
+
+        .news-card img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .news-card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .news-card p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .news-card a {
+            display: inline-block;
+            background-color: #ff6b6b;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .news-card a:hover {
+            background-color: #ff4c4c;
+        }
+
+        .map-container {
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .map-container h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .stats-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 40px 0;
+        }
+
+        .stats-container h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .stats-container ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .stats-container ul li {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px 0;
+            background-color: #333;
+            color: #fff;
+            margin-top: 20px;
+        }
+
+        /* Estilos responsivos */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            nav ul li {
+                display: block;
+                margin: 10px 0;
+            }
+
+            .news-card {
+                width: 100%;
+            }
+
+            .map-container iframe {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            .news-card {
+                padding: 15px;
+            }
+
+            .news-card h2 {
+                font-size: 1.3rem;
+            }
+
+            .news-card p {
+                font-size: 0.9rem;
+            }
+
+            .map-container iframe {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Notícias de Incêndios Globais</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Início</a></li>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Mapas</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Seção de Notícias -->
+        <section class="news-container">
+            <!-- Notícia 1 -->
+            <div class="news-card">
+                <img src="https://via.placeholder.com/300x200" alt="Incêndio na Amazônia">
+                <h2>Incêndio na Amazônia</h2>
+                <p>Um grande incêndio florestal está devastando partes da Amazônia, com impactos graves na biodiversidade e no clima global.</p>
+                <a href="#">Leia Mais</a>
+            </div>
+
+            <!-- Notícia 2 -->
+            <div class="news-card">
+                <img src="https://via.placeholder.com/300x200" alt="Incêndio na Austrália">
+                <h2>Incêndio na Austrália</h2>
+                <p>Incêndios florestais na Austrália continuam a queimar, destruindo habitats naturais e ameaçando comunidades locais.</p>
+                <a href="#">Leia Mais</a>
+            </div>
+
+            <!-- Notícia 3 -->
+            <div class="news-card">
+                <img src="https://via.placeholder.com/300x200" alt="Incêndio na Califórnia">
+                <h2>Incêndio na Califórnia</h2>
+                <p>Califórnia enfrenta uma nova onda de incêndios florestais, com milhares de hectares já consumidos pelo fogo.</p>
+                <a href="#">Leia Mais</a>
+            </div>
+
+            <!-- Notícia 4 -->
+            <div class="news-card">
+                <img src="https://via.placeholder.com/300x200" alt="Incêndio no Canadá">
+                <h2>Incêndio no Canadá</h2>
+                <p>Incêndios no Canadá estão causando evacuações em massa e danos significativos às florestas boreais.</p>
+                <a href="#">Leia Mais</a>
+            </div>
+
+            <!-- Notícia 5 -->
+            <div class="news-card">
+                <img src="https://via.placeholder.com/300x200" alt="Incêndio na Indonésia">
+                <h2>Incêndio na Indonésia</h2>
+                <p>Incêndios florestais na Indonésia estão causando problemas de saúde devido à fumaça densa que cobre a região.</p>
+                <a href="#">Leia Mais</a>
+            </div>
+
+            <!-- Notícia 6 -->
+            <div class="news-card">
+                <img src="https://via.placeholder.com/300x200" alt="Incêndio na Sibéria">
+                <h2>Incêndio na Sibéria</h2>
+                <p>Incêndios na Sibéria estão liberando grandes quantidades de CO2, agravando o aquecimento global.</p>
+                <a href="#">Leia Mais</a>
+            </div>
+
+            <!-- Notícia 7 -->
+            <div class="news-card">
+                <img src="https://via.placeholder.com/300x200" alt="Incêndio na Grécia">
+                <h2>Incêndio na Grécia</h2>
+                <p>Incêndios florestais na Grécia estão destruindo vilarejos históricos e áreas turísticas.</p>
+                <a href="#">Leia Mais</a>
+            </div>
+
+            <!-- Notícia 8 -->
+            <div class="news-card">
+                <img src="https://via.placeholder.com/300x200" alt="Incêndio no Chile">
+                <h2>Incêndio no Chile</h2>
+                <p>Incêndios no Chile estão causando destruição em áreas agrícolas e florestais.</p>
+                <a href="#">Leia Mais</a>
+            </div>
+
+            <!-- Notícia 9 -->
+            <div class="news-card">
+                <img src="https://via.placeholder.com/300x200" alt="Incêndio na África do Sul">
+                <h2>Incêndio na África do Sul</h2>
+                <p>Incêndios na África do Sul estão ameaçando a vida selvagem e os parques nacionais.</p>
+                <a href="#">Leia Mais</a>
+            </div>
+
+            <!-- Notícia 10 -->
+            <div class="news-card">
+                <img src="https://via.placeholder.com/300x200" alt="Incêndio na Rússia">
+                <h2>Incêndio na Rússia</h2>
+                <p>Incêndios na Rússia estão queimando florestas boreais, com impactos significativos no ecossistema.</p>
+                <a href="#">Leia Mais</a>
+            </div>
+        </section>
+
+        <!-- Seção do Mapa -->
+        <section class="map-container">
+            <h2>Mapa das Regiões Afetadas</h2>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31771570.074348867!2d-69.65641539999999!3d-13.6561589!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9c59c7ebcc28cf%3A0x295a1506f2293e63!2sBrasil!5e0!3m2!1spt-BR!2sbr!4v1699470000000!5m2!1spt-BR!2sbr"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </section>
+
+        <!-- Seção de Estatísticas -->
+        <section class="stats-container">
+            <h2>Estatísticas dos Incêndios</h2>
+            <ul>
+                <li>🌍 <strong>Amazônia:</strong> 10.000 hectares queimados.</li>
+                <li>🇦🇺 <strong>Austrália:</strong> 5.000 casas destruídas.</li>
+                <li>🇺🇸 <strong>Califórnia:</strong> 1 milhão de pessoas evacuadas.</li>
+                <li>🇨🇦 <strong>Canadá:</strong> 500.000 hectares afetados.</li>
+                <li>🇮🇩 <strong>Indonésia:</strong> 2 milhões de pessoas afetadas pela fumaça.</li>
+                <li>🇷🇺 <strong>Sibéria:</strong> 10 milhões de hectares queimados.</li>
+                <li>🇬🇷 <strong>Grécia:</strong> 100 vilarejos evacuados.</li>
+                <li>🇨🇱 <strong>Chile:</strong> 200.000 hectares destruídos.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Notícias de Incêndios Globais. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
