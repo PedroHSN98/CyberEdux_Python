@@ -1,3 +1,0 @@
-chave aula :
-
-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
