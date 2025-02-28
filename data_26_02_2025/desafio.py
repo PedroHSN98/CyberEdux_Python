@@ -12,6 +12,7 @@ As operações que o chatbot pode realizar são:
 utilizar as seguintes funções para simular os comandos eletricos de ligar e desligar a luz:
 '''
 
+
 import telebot
 
 API_TOKEN = "7660774456:AAE8OzzO0YFU3EmoQb6oRVdLAkhonXxcBZo"
