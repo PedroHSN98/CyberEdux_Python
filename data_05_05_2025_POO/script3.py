@@ -68,7 +68,7 @@ posto.adicionar_carro(carro2)
 
 # Abastecendo os carros e mostrando faturamento
 faturamento = posto.abastecer_carros()
-print(f"💰 Faturamento total do posto: R${faturamento:.2f}\n")
+print(f"Faturamento total do posto: R${faturamento:.2f}\n")
 
 # Exibindo dados atualizados dos carros
 carro1.exibir_dados()
