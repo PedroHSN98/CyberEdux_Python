@@ -4,10 +4,11 @@ class Carro():
         self.modelo = None
         self.placa = None
         self.qtd_de_combustivel = 0
+        self.qtd_max_combustivel = 30
 
 
     def abastecer(self, quantidade):
-        assert self.qtd_de_combustivel + quantidade <= 30, 'Limite excedido'
+        assert self.qtd_de_combustivel + quantidade <= self.qtd_max_combustivel, 'Limite excedido'
         self.qtd_de_combustivel += quantidade
 
     
