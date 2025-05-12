@@ -21,10 +21,10 @@ class EstudanteDeGraduacao:
         print('Modalidade', self.modalidade)
 
 estudante = EstudanteDeGraduacao(
-    'Fulano da Silva', 
-    'Fulano@gmail.com', 
-    'Análise de Desenvolvimento de Sistemas', 
-    'Técnologo')
+    nome='Fulano da Silva', 
+    email='Fulano@gmail.com', 
+    curso='Análise de Desenvolvimento de Sistemas', 
+    modalidade='Técnologo')
 
 
 #estudante.nome = 'Fulano da Silva'
