@@ -1,64 +1,72 @@
-#Atividades simulador de Carros
-
-class Carro:
+class Carro():
     def __init__(self, placa):
-        self.velocidade_atual = 0 #km/h
-        self.kilometragem = 0 #km
+        self.velocidade_atual = 0    #km/h
+        self.kilometragem = 0        #km
         self.placa = placa
 
-    def andar(distancia): #distancia em km
-        #Atualizar a kilometragem
-        #Retorno o tempo de viagem
+    def andar(self, distancia):
         self.kilometragem += distancia
         return distancia/self.velocidade_atual
+    
+    def mostrar_painel(self):
+        print('PAINEL DO CARRO DE PLACA: ' ,self.placa)
+        print('VELOCIDADE (km/h): ' ,self.velocidade_atual)
+        print('KILOMETRAGEM (km): ' ,self.kilometragem)
 
-#Agora, vamos implementar os tipos de carros
-# Em cada tipo especifico de carro, o metodo andar tem um comportamento
-
-class CarroGasolina(Carro):
+#Implementar os tipos de carros, onde cada carro vai ter um comportamneto diferente com relação ao método 'andar'     
+class CarroGasolina():
     def __init__(self, placa, capacidade, autonomia):
         super().__init__(placa)
         self.autonomia = autonomia
-        self.capacidade_tanque = capacidade 
+        self.capacidade = capacidade
         self.qtd_de_gasolina = capacidade
 
-    # Precisamos sobreescrever o método andar para criar comoportamentos especifiocos 
-    #do carro e gasolina
-    def andar(self, distancia): #distancia em km
-        consumo = distancia/self.velocidade_atual
-        assert consumo <= self.qtd_de_gasolina, 'QTD DE gasolina insuficiente'
-        self.qtd_de_gasolina -= consumo
-        return super().andar(distancia)
-    
+#Sobreesccrever método andar pra criar um comportamento específico do carro e gasolina
+    def andar(self, distancia):
+        consumo = (distancia)/(self.autonomia)
+        assert consumo <= self.qtd_de_gasolina,  'Qtd de gasolina insuficiente'
+        self.qtd_de_gasolina -= consumo          #Atualizar a qtd do tanque após viagem
+        
+    def mostrar_painel():
+        super().mostrar_painel()
+        print('QTD DE GASOLINA (L): ', self.qtd_de_gasolina)
+        print('CAPACIDADE: ', self.capacidade)
+
 class CarroEletrico(Carro):
     def __init__(self, placa, capacidade, autonomia):
         super().__init__(placa)
-        self.carga_atual = capacidade #KWH
-        self.capacidade = capacidade
         self.autonomia = autonomia
+        self.capacidade = capacidade
+        self.carga_atual = capacidade
 
     def andar(self, distancia):
-        #atualizar a bateria
-        consumo = distancia/self.autonomia
-        assert consumo <= self.carga_atual, 'Carga insuficiente de bateria'
-        self.carga_atual -= consumo 
-        return super().andar(distancia)
+        consumo = (distancia)/(self.autonomia)
+        assert consumo <= self.carga_atual
+        self.carga_atual -= consumo           
 
-# codigo de teste
+    def mostrar_painel(self):
+        super().mostrar_painel()     
+        print('CARGA ATUAL (Kwh): ', self.carga_atual)
+        print('CAPACIDADE (Kwh): ', self.capacidade)
 
-opcao = input('Digite 1 para criar um carro a gasolina ou 2 para eletrico')
-placa = input('Digite a placa do carro')
+#----Código de teste----
+opcao = input('Digite 1 para criar um carro elétrico ou 2 para criar um aleatório: ')
+placa = input('Digite a placa do carro: ')
 if opcao == '1':
-    capacidade = float(input('Capacidade em Litros'))
-    autonomia = float(input('Autonomia por Litros'))
+    capacidade = float(input('Capacidade em litros: '))
+    autonomia = float(input('Autonomia em km/L: '))
     meu_carro = CarroGasolina(placa, capacidade, autonomia)
 elif opcao == '2':
-    capacidade = float(input('Capacidade em kwh'))
-    autonomia = float(input('Autonomia em  km/kwh'))
+    capacidade = float(input('Capacidade em Kwh'))
+    autonomia = float(input('Autonomia em km/Kwh: '))
     meu_carro = CarroEletrico(placa, capacidade, autonomia)
-else:
-    print('opcao invalida')
+else: 
+    print('Opação inválida')
     exit()
 
-        
-
+meu_carro.mostra_painel()      #Exibir painel atual do carro, antes da viagem
+distancia  = float(input('Insira  a distância para percorrer em km: '))
+print('Fazendo percurso...')
+tempo_de_viagem = meu_carro.andar(distancia)
+print('Tempo de viagem (h): ', tempo_de_viagem)
+meu_carro.mostrar_painel()
