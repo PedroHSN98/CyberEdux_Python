@@ -55,21 +55,25 @@ elif opcao == "🌱 Consumo Total por Bioma":
     st.subheader("🌱 Consumo Total por Bioma")  # Subtítulo da seção
     st.caption("🌱 Gráfico 2 - Tipo: **Descritivo e Demonstrativo**. Compara o total consumido por bioma de 2006 a 2020, com exibição detalhada por bioma.")  # Descrição
 
-    bioma_consumo = df.groupby("bioma")["total_consumo"].sum().sort_values(ascending=False)  # Soma o total por bioma e ordena decrescente
+    # Agrupamento e soma do consumo total por bioma
+    bioma_consumo = df.groupby("bioma")["total_consumo"].sum().sort_values(ascending=False).reset_index()  # Reset para manter o nome do bioma como coluna
 
-    fig, ax = plt.subplots(figsize=(10, 4))  # Cria figura
-    sns.barplot(x=bioma_consumo.index, y=bioma_consumo.values, ax=ax)  # Cria gráfico de barras
+    # Criação do gráfico de barras
+    fig, ax = plt.subplots(figsize=(10, 4))
+    sns.barplot(data=bioma_consumo, x="bioma", y="total_consumo", ax=ax)  # Usa colunas diretamente
     ax.set_xlabel("Bioma")  # Eixo X
     ax.set_ylabel("Consumo Total (GWh)")  # Eixo Y
-    ax.set_title("Consumo Total por Bioma (2006–2020)")  # Título
+    ax.set_title("Consumo Total por Bioma (2006–2020)")  # Título do gráfico
     ax.tick_params(axis='x', rotation=45)  # Rotaciona os nomes dos biomas
-    st.pyplot(fig)  # Mostra o gráfico
+    st.pyplot(fig)  # Exibe o gráfico
 
+    # Tabela com os valores numéricos
     st.markdown("### 🔢 Consumo Total por Bioma (valores numéricos)")  # Título da tabela
-    st.dataframe(bioma_consumo.reset_index().rename(columns={
+    st.dataframe(bioma_consumo.rename(columns={
         "bioma": "Bioma",
         "total_consumo": "Consumo Total (GWh)"
-    }))  # Exibe os dados em formato de tabela interativa
+    }))  # Exibe a tabela com cabeçalhos legíveis
+
 
 # === GRÁFICO 3 ===
 elif opcao == "👥 População vs Consumo Total":
@@ -99,29 +103,29 @@ elif opcao == "🌡️ Temperatura Média vs Consumo Total":
 
 # === GRÁFICO 5 ===
 elif opcao == "🚀 Top 10 Crescimento de Consumo":
-    st.subheader("🚀 Top 10 Crescimento de Consumo")  # Subtítulo
-    st.caption("🚀 Gráfico 5 - Tipo: **Descritivo e Demonstrativo**. Exibe as 10 localidades com maior aumento no consumo elétrico entre 2006 e 2020.")  # Descrição
+    st.subheader("🚀 Top 5 Crescimento de Consumo")  # Subtítulo atualizado
+    st.caption("🚀 Gráfico 5 - Tipo: **Descritivo e Demonstrativo**. Exibe as 5 localidades com maior aumento no consumo elétrico entre 2006 e 2020.")  # Descrição atualizada
 
-    top_crescimento = df.sort_values(by="crescimento", ascending=False).head(10)  # Filtra top 10 com maior crescimento
+    top_crescimento = df.sort_values(by="crescimento", ascending=False).head(5)  # Agora pega somente os Top 5
     top_crescimento["localidade"] = top_crescimento.index.astype(str) + " - " + top_crescimento["bioma"]  # Cria nova coluna com nome + bioma
     top_crescimento = top_crescimento.reset_index(drop=True)  # Reseta o índice
 
-    fig, ax = plt.subplots(figsize=(12, 5))  # Figura
+    fig, ax = plt.subplots(figsize=(10, 4))  # Figura com tamanho levemente menor
     bars = sns.barplot(x=top_crescimento["localidade"], y=top_crescimento["crescimento"], ax=ax)  # Gráfico de barras
 
     ax.set_xlabel("Localidade (Estado - Bioma)")  # Eixo X
     ax.set_ylabel("Crescimento (GWh)")  # Eixo Y
-    ax.set_title("Top 10 Localidades com Maior Crescimento de Consumo (2006–2020)")  # Título
+    ax.set_title("Top 5 Localidades com Maior Crescimento de Consumo (2006–2020)")  # Título atualizado
     ax.tick_params(axis='x', rotation=45)  # Rotaciona os nomes
 
     import matplotlib.ticker as ticker  # Importa para formatação numérica
     ax.yaxis.set_major_formatter(ticker.FuncFormatter(lambda x, _: f'{int(x):,}'.replace(',', '.')))  # Formata os valores no eixo Y
 
-    for container in bars.containers:  # Adiciona valores nas barras
+    for container in bars.containers:  # Adiciona os valores nas barras
         bars.bar_label(container,
                        labels=[f'{int(v):,}'.replace(',', '.') for v in container.datavalues],
                        padding=3,
                        fontsize=9,
                        color='black')
 
-    st.pyplot(fig)  # Exibe gráfico
+    st.pyplot(fig)  # Exibe o gráfico
